@@ -2,24 +2,24 @@ import pygame
 import random
 import sys
 
-# Initialisation de Pygame
+# Initialize Pygame
 pygame.init()
 
-# Constantes
-SCREEN_WIDTH = 800
-SCREEN_HEIGHT = 800
-CELL_SIZE = 40
+# Constants
+SCREEN_WIDTH = 750
+SCREEN_HEIGHT = 750
+CELL_SIZE = 25
 GRID_SIZE = SCREEN_WIDTH // CELL_SIZE
 FPS = 10
 
-# Couleurs (R, G, B)
+# Colors
 SNAKE_COLOR = (248, 168, 0)
 BACKGROUND_COLOR = (104, 56, 0)
 APPLE_COLOR = (1, 252, 128)
 BORDER_COLOR = (232, 168, 0)
 SCORE_COLOR = (248, 252, 248)
 
-# Création de la fenêtre
+# Create the screen
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 pygame.display.set_caption("Snake")
 
