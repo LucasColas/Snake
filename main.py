@@ -134,6 +134,7 @@ def main():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 sys.exit()
+
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_UP:
                     snake.change_direction((0, -1))
@@ -175,7 +176,7 @@ def main():
         clock.tick(FPS)
 
         # Check victory
-        if len(snake.positions) == GRID_SIZE * GRID_SIZE:
+        if len(snake.positions) == (GRID_SIZE-2) * (GRID_SIZE-2):
             victory_screen(screen, score)
             pygame.display.flip()
             running = False
