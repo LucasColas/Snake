@@ -69,7 +69,8 @@ class Snake:
         for x, y in self.positions:
             rect = pygame.Rect(x * CELL_SIZE, y * CELL_SIZE, CELL_SIZE, CELL_SIZE)
             pygame.draw.rect(surface, SNAKE_COLOR, rect)
-        # Ajouter des yeux à la tête du serpent
+
+        # Add eyes to the snake
         head_x, head_y = self.positions[0]
         eye1 = pygame.Rect(head_x * CELL_SIZE + 8, head_y * CELL_SIZE + 8, 5, 5)
         eye2 = pygame.Rect(head_x * CELL_SIZE + 17, head_y * CELL_SIZE + 8, 5, 5)
@@ -166,7 +167,7 @@ def main():
             snake.grow_snake()
             apple = Apple(snake)
             score += 1
-            #eat_sound.play()
+            
 
         screen.fill(BACKGROUND_COLOR)
         draw_grid(screen)
@@ -177,7 +178,7 @@ def main():
         pygame.display.flip()
         clock.tick(FPS)
 
-        # Vérification de la victoire
+        # Check victory
         if len(snake.positions) == GRID_SIZE * GRID_SIZE:
             victory_screen(screen, score)
             pygame.display.flip()
@@ -191,5 +192,5 @@ def main():
                         if event.key == pygame.K_SPACE:
                             main()
 
-# Lancer le jeu
+# Run the game
 main()
