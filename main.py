@@ -92,12 +92,9 @@ class Apple:
         rect = pygame.Rect(self.position[0] * CELL_SIZE, self.position[1] * CELL_SIZE, CELL_SIZE, CELL_SIZE)
         pygame.draw.rect(surface, APPLE_COLOR, rect)
 
-# Fonctions for the game
-def draw_grid(surface):
-    for x in range(0, SCREEN_WIDTH, CELL_SIZE):
-        pygame.draw.line(surface, BACKGROUND_COLOR, (x, 0), (x, SCREEN_HEIGHT))
-    for y in range(0, SCREEN_HEIGHT, CELL_SIZE):
-        pygame.draw.line(surface, BACKGROUND_COLOR, (0, y), (SCREEN_WIDTH, y))
+# Functions for the game
+def draw_background(surface):
+    surface.fill(BACKGROUND_COLOR)
 
 def draw_border(surface):
     pygame.draw.rect(surface, BORDER_COLOR, pygame.Rect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT), CELL_SIZE)
@@ -107,7 +104,7 @@ def display_score(surface, score):
     surface.blit(text, (10, 10))
 
 def game_over_screen(surface, score):
-    surface.fill(BACKGROUND_COLOR)
+    draw_background(surface)
     game_over_text = font.render("GAME OVER", True, SCORE_COLOR)
     score_text = font.render(f"Score: {score}", True, SCORE_COLOR)
     restart_text = font.render("Press Space to Restart", True, SCORE_COLOR)
@@ -116,7 +113,7 @@ def game_over_screen(surface, score):
     surface.blit(restart_text, (SCREEN_WIDTH // 2 - restart_text.get_width() // 2, SCREEN_HEIGHT // 2))
 
 def victory_screen(surface, score):
-    surface.fill(BACKGROUND_COLOR)
+    draw_background(surface)
     victory_text = font.render("YOU WIN!", True, SCORE_COLOR)
     score_text = font.render(f"Score: {score}", True, SCORE_COLOR)
     restart_text = font.render("Press Space to Restart", True, SCORE_COLOR)
@@ -169,8 +166,7 @@ def main():
             score += 1
             
 
-        screen.fill(BACKGROUND_COLOR)
-        draw_grid(screen)
+        draw_background(screen)
         draw_border(screen)
         snake.draw(screen)
         apple.draw(screen)
